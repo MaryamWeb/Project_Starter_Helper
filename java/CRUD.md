@@ -114,6 +114,9 @@ public interface ShopRepository extends CrudRepository<Shop, Long> {}
 add this code in it
 
 ```java
+import java.util.Optional;
+import java.util.ArrayList;
+
 @Service
 public class ShopService {
 
@@ -150,6 +153,12 @@ public class ShopService {
 
 open the file `/src/main/java/com.yourname.coffeeshop.controllers/HomeController`
 ```java
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 @Controller
 public class HomeController {
 	
