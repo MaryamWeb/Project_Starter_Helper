@@ -111,5 +111,43 @@ def index(request):
     	<img src="{% static 'images/image.jpg' %}" />
     </body>
 ```
+### Models:
+* Open the file `hero_app/models.py`
 
+```python 
+from django.db import models
+  
+class Hero(models.Model):
+    name = models.CharField(max_length=40)
+    desc = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return f'<Hero object: ID:{self.id} Name:{self.name} Desc:{self.desc}>'
+
+```
+https://docs.djangoproject.com/en/3.1/ref/models/fields/
+
+### Migrations:
+* In the terminal run `python manage.py makemigrations` //staging
+* Then run `python manage.py migrate` //applies the changes 
+
+### App views.py and templates with models:
+```python 
+from .models import Hero
  
+def index(request):
+    context = {
+    	"all_heroes": Hero.objects.all()
+    }
+    return render(request, "index.html", context)
+```
+```html
+<h1>Heroes:</h1>
+<ul>
+{% for p in all_heroes %}
+   <li>{{p.name}}</li>
+{% endfor %}
+</ul>
+```
