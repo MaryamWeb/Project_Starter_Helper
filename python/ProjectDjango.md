@@ -53,8 +53,8 @@ Run the application by running the following command `python manage.py runserver
 Check our server at localhost:7000/
 
 ### Templates:
-* Create an empty folder `mkdir templates`  
-* Inside the folder create an html template `index.html`
+* Create an empty folder while in the app directory `mkdir templates`  
+* Inside the folder create an html template `touch index.html`
 
 We can then render templates in our views.py file like so:
 
