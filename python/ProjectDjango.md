@@ -4,7 +4,7 @@
 * In terminal type `py -m venv ENV_NAME`
 * Activate the virtual environment `call ENV_NAME\Scripts\activate`
 * With your virtual environment activated In the terminal run `pip install Django`   
-* Make sure we have successfully installed Django by checking its version. In terminal run `Django --version`
+* Make sure we have successfully installed Django by checking its version. In terminal run `python -m django --version`
 
 ### Setup
 * Create an empty folder `mkdir superheroes` -->  `cd superheroes`
