@@ -24,6 +24,20 @@ INSTALLED_APPS = [
        'django.contrib.staticfiles',
    ]    
 ```
+* Create `.env` file and add the SECRETE_KEY from the seetings.py file `DJANGO_SECRET_KEY = example`
+* In settings.py
+ ```python
+ from decouple import config
+ 
+ SECRET_KEY = config("DJANGO_SECRET_KEY")
+```
+* Create `.gitignore` file and add 
+```
+ ENV_NAME/
+__pycache__/
+*.pyc
+.env
+```
 #### urls.py:
 ```python
     from django.urls import path, include           
