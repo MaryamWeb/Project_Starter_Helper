@@ -55,7 +55,20 @@ Check our server at localhost:7000/
 ### Templates:
 * Create an empty folder while in the app directory `mkdir templates`  
 * Inside the folder create an html template `touch index.html`
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heroes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> 
+    </head>
+    <body>
+        <h1>Welcome Page</h1>
+    </body>
+ </html> 
+```
 We can then render templates in our views.py file like so:
 
 ```python
