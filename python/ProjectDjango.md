@@ -4,7 +4,7 @@
 * In terminal type `py -m venv ENV_NAME`
 * Activate the virtual environment `call ENV_NAME\Scripts\activate`
 * With your virtual environment activated In the terminal run `pip install Django`   
-* Make sure we have successfully installed Django by checking its version. In terminal run `Django --version`
+* Make sure we have successfully installed Django by checking its version. In terminal run `python -m django --version`
 
 ### Setup
 * Create an empty folder `mkdir superheroes` -->  `cd superheroes`
@@ -23,6 +23,20 @@ INSTALLED_APPS = [
        'django.contrib.messages',
        'django.contrib.staticfiles',
    ]    
+```
+* Create `.env` file and add the SECRETE_KEY from the seetings.py file `DJANGO_SECRET_KEY = example`
+* In settings.py
+ ```python
+ from decouple import config
+ 
+ SECRET_KEY = config("DJANGO_SECRET_KEY")
+```
+* Create `.gitignore` file and add 
+```
+ ENV_NAME/
+__pycache__/
+*.pyc
+.env
 ```
 #### urls.py:
 ```python
@@ -53,9 +67,22 @@ Run the application by running the following command `python manage.py runserver
 Check our server at localhost:7000/
 
 ### Templates:
-* Create an empty folder `mkdir templates`  
-* Inside the folder create an html template `index.html`
-
+* Create an empty folder while in the app directory `mkdir templates`  
+* Inside the folder create an html template `touch index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heroes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> 
+    </head>
+    <body>
+        <h1>Welcome Page</h1>
+    </body>
+ </html> 
+```
 We can then render templates in our views.py file like so:
 
 ```python
@@ -150,4 +177,5 @@ def index(request):
    <li>{{p.name}}</li>
 {% endfor %}
 </ul>
+
 ```
