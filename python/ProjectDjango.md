@@ -24,6 +24,7 @@ INSTALLED_APPS = [
        'django.contrib.staticfiles',
    ]    
 ```
+* In terminal run `pip install python-decouple`
 * Create `.env` file and add the SECRETE_KEY from the seetings.py file `DJANGO_SECRET_KEY = example`
 * In settings.py
  ```python
